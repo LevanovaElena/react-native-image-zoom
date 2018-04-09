@@ -639,10 +639,10 @@ export default class ImageViewer extends React.Component<Props, State> {
   }
 
   public centerOn(params: ICenterOn) {
-    this.positionX = params!.x
-    this.positionY = params!.y
-    this.scale = params!.scale
-    const duration = params!.duration || 300
+    this.positionX = params!.x;
+    this.positionY = params!.y;
+    this.scale = params!.scale;
+    const duration = params!.duration || 300;
     Animated.parallel([
       Animated.timing(this.animatedScale, {
         toValue: this.scale,
@@ -657,7 +657,8 @@ export default class ImageViewer extends React.Component<Props, State> {
         duration
       })
     ]).start(() => {
-      this.imageDidMove("centerOn")
+      this.imageDidMove("centerOn");
+      this.panResponderReleaseResolve();
     })
   }
 
